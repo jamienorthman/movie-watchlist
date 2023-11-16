@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.search-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-container,
+.info1, .info2 {
+    display: flex;
+}
+
+.movie-container {
+    border-bottom: 1px solid lightgray;
+}
+
+.poster {
+    border-radius: 2px;
+    height: 120px;
+    width: calc(120px * 5 / 7);
+    justify-self: flex-start;
+}
+
+.info1 {
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.info2 {
+    justify-content: space-between;
+}
+
+.movie-title,
+.rating, .run-time,
+.genre {
+    display: inline;
+}
