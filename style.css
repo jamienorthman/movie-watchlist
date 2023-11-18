@@ -39,3 +39,15 @@ body {
 .genre {
     display: inline;
 }
+
+button {
+    cursor: pointer;
+}
+
+.unsuccessful {
+    text-align: center;
+}
+
+.disabled {
+    cursor: not-allowed;
+}

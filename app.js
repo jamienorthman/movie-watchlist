@@ -12,13 +12,13 @@ let myMovies = []
 searchBtn.addEventListener('click', handleSearchClick)
 
 async function handleSearchClick() {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=bd62154e&s=${searchField.value}&type=movie`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=bd62154e&s=${searchField.value}&type=movie`)
     const data = await response.json()
     console.log(data)
     if (data.Search) {
         searchList.innerHTML = ``
         for (let movie of data.Search) {
-            const response = await fetch(`http://www.omdbapi.com/?apikey=bd62154e&i=${movie.imdbID}&type=movie`)
+            const response = await fetch(`https://www.omdbapi.com/?apikey=bd62154e&i=${movie.imdbID}&type=movie`)
             const data = await response.json()
             searchedMovies.push(data)
             searchList.innerHTML += `
@@ -31,7 +31,7 @@ async function handleSearchClick() {
                 <div class="info2>
                     <p class="run-time">${data.Runtime}</p>
                     <p class="genre">${data.Genre}</p>
-                    <button id="add-btn" data-add="${data.imdbID}">+ Watchlist</button>
+                    <button id="add-watchlist-${data.imdbID}" data-add="${data.imdbID}">+ Watchlist</button>
                 </div>
                 <p class="plot">${data.Plot}</p>
             </div>
@@ -59,10 +59,17 @@ function handleAddClick(movieID) {
     if (storedMovies) {
         myMovies = storedMovies
     }
-    myMovies.push(movieObj)
-    console.log("test", myMovies)
-    localStorage.setItem("myMovies", JSON.stringify(myMovies))
+    if (myMovies.some(movieObj => movieObj.imdbID == movieID)) {
+        console.log('no duplicates!')
+        document.getElementById(`add-watchlist-${movieID}`).disabled = true
+        document.getElementById(`add-watchlist-${movieID}`).classList.add = 'disabled'
+    } else {
+        myMovies.push(movieObj)
+        localStorage.setItem("myMovies", JSON.stringify(myMovies))
+    }
 }
+
+
 
 
     
