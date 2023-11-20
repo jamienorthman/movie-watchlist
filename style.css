@@ -63,6 +63,7 @@ header {
 #search-btn:hover {
     color: #4b4b4b;
     background-color: #FFF;
+    text-decoration: none;
 }
 
 a {
@@ -170,9 +171,18 @@ button {
     color: #FFF;
 }
 
+button:hover {
+    text-decoration: underline;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    color: #2E2E2F;
+}
+
 .star-icon,
 .add-icon,
-i {
+.remove-icon {
     flex-shrink: 0;
 }
 
@@ -181,20 +191,16 @@ i {
     height: 15px;
 }
 
-.add-icon, i {
+.add-icon,
+.remove-icon {
     width: 16px;
     height: 16px;
 }
 
-i {
-    background-color: #FFF;
-    color: #121212;
-}
-
 .unsuccessful {
     text-align: center;
-}
-
-.disabled {
-    cursor: not-allowed;
+    color: #787878;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
 }
