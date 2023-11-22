@@ -1,2 +1,2 @@
 # movie-watchlist
-Searches for movies and series using Open Movie Database API and saves movies to list.
+Searches for movies using the Open Movie Database API and saves selected movies to a watchlist using localStorage.

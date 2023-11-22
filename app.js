@@ -2,6 +2,9 @@
 
 // Data: { Poster, Title, Ratings[{}], Runtime, Genre, Plot }
 
+//Make a another fetch request using method: 'HEAD' to handle broken links from movie posters
+
+
 const searchBtn = document.getElementById('search-btn')
 const searchField = document.getElementById('search-field')
 const searchList = document.getElementById('search-list')
@@ -84,6 +87,7 @@ function handleAddClick(movieID) {
     `<button>Read More</button>`
     plot.textContent = truncated
 }
+plot = shortened ? "Read more" : "Read less"
 OR.. separate fetch to request long plot when 'read more' btn is clicked
 */
 
