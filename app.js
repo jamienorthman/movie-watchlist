@@ -23,7 +23,8 @@ async function handleSearchClick() {
             searchedMovies.push(data)
             searchList.innerHTML += `
             <div class="movie-container">
-                <img class="poster" src="${data.Poster === "N/A" ? ".assets/not-found.png" : data.Poster}" />
+                <img class="poster" src="${data.Poster === 'N/A' ? './assets/not-found.png' : 
+                data.Poster}" alt="${data.Title}"/>
                 <div class="info-container">
                     <div class="info1">
                         <h4 class="movie-title">${data.Title}</h4>
@@ -45,7 +46,9 @@ async function handleSearchClick() {
         }
     } else {
         searchList.innerHTML = `
-        <p class="unsuccessful">Unable to find what you're looking for. Please try another search.</p>
+        <p class="unsuccessful">
+            Unable to find what you're looking for. Please try another search.
+        </p>
         `
     }
     
@@ -66,7 +69,6 @@ function handleAddClick(movieID) {
         myMovies = storedMovies
     }
     if (myMovies.some(movieObj => movieObj.imdbID == movieID)) {
-        console.log('no duplicates!')
         const addBtn = document.getElementById(`add-watchlist-${movieID}`)
         addBtn.disabled = true
     } else {
@@ -74,6 +76,16 @@ function handleAddClick(movieID) {
         localStorage.setItem("myMovies", JSON.stringify(myMovies))
     }
 }
+
+// to truncate text passing 134 ch:
+/*function truncateText() {
+    const plot = document.querySelector('.plot')
+    const truncated = plot.substring(0, 135) + "..." +
+    `<button>Read More</button>`
+    plot.textContent = truncated
+}
+OR.. separate fetch to request long plot when 'read more' btn is clicked
+*/
 
 
 

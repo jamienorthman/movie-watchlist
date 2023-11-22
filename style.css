@@ -103,11 +103,13 @@ a:hover {
 }
 
 .movie-container {
-    max-width: 95%;
+    width: 95%;
     display: flex;
     align-items: center;
     border-bottom: 2px solid #2E2E2F;
     padding-bottom: 1em;
+    padding-top: 1em;
+    margin-bottom: 1em;
 }
 
 .poster {

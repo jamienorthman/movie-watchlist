@@ -42,7 +42,9 @@ function updateWatchlist() {
     } else {
         watchList.innerHTML += `
         <div class="empty-list">
-            <p class="unsuccessful">Your watchlist is looking a little empty...</p>
+            <p class="unsuccessful">
+                Your watchlist is looking a little empty...
+            </p>
             <button>
                 <a href="index.html>
                     <img src="./assets/add.png"> Let's add some movies!
