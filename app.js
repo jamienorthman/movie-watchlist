@@ -67,12 +67,13 @@ function handleAddClick(movieID) {
     const movieObj = searchedMovies.filter((movie) => {
         return movie.imdbID == movieID
     })[0]
+    const addBtn = document.getElementById(`add-watchlist-${movieID}`)
+    addBtn.disabled = true
     let storedMovies = JSON.parse(localStorage.getItem("myMovies"))
     if (storedMovies) {
         myMovies = storedMovies
     }
     if (myMovies.some(movieObj => movieObj.imdbID == movieID)) {
-        const addBtn = document.getElementById(`add-watchlist-${movieID}`)
         addBtn.disabled = true
     } else {
         myMovies.push(movieObj)
