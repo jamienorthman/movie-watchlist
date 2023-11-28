@@ -14,6 +14,10 @@ let myMovies = []
 
 searchBtn.addEventListener('click', handleSearchClick)
 
+// Fetches data from the open movie database API, performing another
+// fetch within the first one to get specific data needed for design.
+// Normally api keys would be hidden server side but in this instance, 
+// a free-tier one is used to practice working with APIs on the frontend.
 async function handleSearchClick() {
     const response = await fetch(`https://www.omdbapi.com/?apikey=bd62154e&s=${searchField.value}&type=movie`)
     const data = await response.json()
@@ -57,12 +61,17 @@ async function handleSearchClick() {
     
 }
 
+// Event listener for the add-button
 document.addEventListener('click', (e) => {
     if (e.target.dataset.add) {
         handleAddClick(e.target.dataset.add)
     }
 })
 
+// Associates each movie object with its add button.
+// Clicking add button pushes the movie object to
+// myMovies array and saves the array to local storage. 
+// Add button is disabled after click (no duplicates allowed). 
 function handleAddClick(movieID) {
     const movieObj = searchedMovies.filter((movie) => {
         return movie.imdbID == movieID

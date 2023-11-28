@@ -1,18 +1,22 @@
 const watchList = document.getElementById('watch-list')
-let storedMovies = JSON.parse(localStorage.getItem('myMovies'))
+let storedMovies = JSON.parse(localStorage.getItem('myMovies')) // Gets myMovies array from local storage so it can be used.
 let watchListArray = []
 
-    
+// Removes a movie on click:    
 document.addEventListener('click', (e) => {
     if (e.target.dataset.remove) {
         handleRemoveClick(e.target.dataset.remove)
     }
 })
 
+// Don't start the watchListArray unless movies in local storage exist:
 if (storedMovies) {
     watchListArray = storedMovies
 }
-    
+
+// If watchListArray exists, populate the HTML of 
+// watchList div with its data from local storage.
+// If it doesn't exist, display the default message.
 function updateWatchlist() {
     if (watchListArray) {
         watchList.innerHTML = ``
@@ -55,14 +59,16 @@ function updateWatchlist() {
     }
 }
 
+// Removes movie object from the watchlist and sets local storage again.
+// Calls updateWatchlist to display updated list in HTML.
 function handleRemoveClick(movieID) {
     const filteredMovies = watchListArray.filter((movie) => {
         return movie.imdbID !== movieID
     })
     watchListArray = filteredMovies
     localStorage.setItem('myMovies', JSON.stringify(watchListArray))
-    console.log(watchListArray)
     updateWatchlist()
 }
 
+// Call the function outside to always display the watchlist:
 updateWatchlist()
