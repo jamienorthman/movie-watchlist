@@ -206,3 +206,29 @@ button:disabled {
     font-weight: 700;
     line-height: 1.5;
 }
+
+@media (max-width: 767px) {
+    .plot {
+        font-size: 0.75rem;
+    }
+
+    #search-list,
+    #watch-list {
+        max-width: 100%;
+        padding: 0.75em;
+    }
+
+    .movie-container {
+        width: 100%;
+    }
+
+    .genre {
+        text-align: center;
+    }
+
+    .add-icon,
+    .remove-icon {
+    width: 25px;
+    height: 25px;
+    }
+}

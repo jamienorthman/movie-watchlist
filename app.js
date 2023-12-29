@@ -1,10 +1,3 @@
-// Base URL: 'http://www.omdbapi.com/?&apikey=bd62154e'
-
-// Data: { Poster, Title, Ratings[{}], Runtime, Genre, Plot }
-
-//Make a another fetch request using method: 'HEAD' to handle broken links from movie posters
-
-
 const searchBtn = document.getElementById('search-btn')
 const searchField = document.getElementById('search-field')
 const searchList = document.getElementById('search-list')
@@ -43,7 +36,7 @@ async function handleSearchClick() {
                         <p class="run-time">${data.Runtime}</p>
                         <p class="genre">${data.Genre}</p>
                         <button id="add-watchlist-${data.imdbID}" data-add="${data.imdbID}"> 
-                            <img src="./assets/add.png" class="add-icon"> Watchlist
+                            <img src="./assets/add.png" class="add-icon"> Watch
                         </button>
                     </div>
                     <p class="plot">${data.Plot}</p>
@@ -89,17 +82,6 @@ function handleAddClick(movieID) {
         localStorage.setItem("myMovies", JSON.stringify(myMovies))
     }
 }
-
-// to truncate text passing 134 ch:
-/*function truncateText() {
-    const plot = document.querySelector('.plot')
-    const truncated = plot.substring(0, 135) + "..." +
-    `<button>Read More</button>`
-    plot.textContent = truncated
-}
-plot = shortened ? "Read more" : "Read less"
-OR.. separate fetch to request long plot when 'read more' btn is clicked
-*/
 
 
 
